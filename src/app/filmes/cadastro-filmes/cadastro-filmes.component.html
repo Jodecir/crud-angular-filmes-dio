@@ -1,35 +1,40 @@
 <mat-toolbar class="app-title">Cadastrar Filme</mat-toolbar>
 <div class="main-div">
   <mat-card class="center width50" >
-    <form [formGroup]="cadastro" (ngSubmit)="salvar()" (ngReset)="reiniciarForm() ">
+    <form [formGroup]="cadastro" (ngSubmit)="salvarForm()" (ngReset)="reiniciarForm() ">
       <mat-card-content>
+        <dio-input-text titulo="Título" controlName="titulo" [formGroup]="cadastro"></dio-input-text> 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Título" name="titulo" formControlName="titulo">
+          <input matInput placeholder="Título Antigo" name="titulo" formControlName="titulo">
           <mat-error>DOIS OU MAIS CARACTERES SÃO OBRIGATÓRIOS</mat-error>
         </mat-form-field>
+        <dio-input-text titulo="Link Foto" controlName="urlFoto" [formGroup]="cadastro"></dio-input-text> 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Link Foto" name="urlFoto" formControlName="urlFoto">
+          <input matInput placeholder="Link Foto Antigo" name="urlFoto" formControlName="urlFoto">
         </mat-form-field>
         <mat-form-field class="full-width">
-            <input matInput [matDatepicker]="picker" readonly (click)="picker.open()" placeholder="Data de Lançamento" name="dtLancamento" formControlName="dtLancamento">
-            <mat-error>CAMPO OBRIGATÓRIO</mat-error>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        <mat-form-field class="full-width">
-          <textarea matInput placeholder="Descrição" name="descricao" formControlName="descricao"></textarea>
+          <input matInput [matDatepicker]="picker" readonly (click)="picker.open()" placeholder="Data de Lançamento" name="dtLancamento" formControlName="dtLancamento">
+          <mat-error>CAMPO OBRIGATÓRIO</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+        <dio-input-textarea titulo="Descrição" controlName="descricao" [formGroup]="cadastro"></dio-input-textarea> 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Nota IMDb" type="number" min="0" max="10" step="1" name="nota" formControlName="nota">
+          <textarea matInput placeholder="Descrição Antigo" name="descricao" formControlName="descricao"></textarea>
         </mat-form-field>
+        <dio-input-text titulo="Nota IMDb" controlName="nota" [formGroup]="cadastro"></dio-input-text> 
         <mat-form-field class="full-width">
-          <input matInput placeholder="Link IMDb" name="urlIMDb" formControlName="urlIMDb">
+          <input matInput placeholder="Nota IMDb Antigo" name="nota" formControlName="nota" type="number" min="0" max="10" step="1">
+        </mat-form-field>
+        <dio-input-text titulo="Link IMDb" controlName="urlIMDb" [formGroup]="cadastro"></dio-input-text> 
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Link IMDb Antigo" name="urlIMDb" formControlName="urlIMDb">
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-select placeholder="Gênero" name="genero" formControlName="genero">
             <mat-option value="Ação">Açao</mat-option>
             <mat-option value="Aventura">Aventura</mat-option>
-            <mat-option value=">Ficção Científica">Ficção Científica</mat-option>
+            <mat-option value="Ficção Científica">Ficção Científica</mat-option>
             <mat-option value="Romance">Romance</mat-option>
             <mat-option value="Terror">Terror</mat-option>
           </mat-select>
