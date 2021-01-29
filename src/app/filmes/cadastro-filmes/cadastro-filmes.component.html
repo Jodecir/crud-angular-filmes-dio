@@ -31,8 +31,9 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="Link IMDb Antigo" name="urlIMDb" formControlName="urlIMDb">
         </mat-form-field>
+        <dio-input-select titulo="Gênero" controlName="genero" [formGroup]="cadastro"></dio-input-select>
         <mat-form-field class="full-width">
-          <mat-select placeholder="Gênero" name="genero" formControlName="genero">
+          <mat-select placeholder="Gênero Antigo" name="genero" formControlName="genero">
             <mat-option value="Ação">Açao</mat-option>
             <mat-option value="Aventura">Aventura</mat-option>
             <mat-option value="Ficção Científica">Ficção Científica</mat-option>
