@@ -12,8 +12,9 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="Link Foto Antigo" name="urlFoto" formControlName="urlFoto">
         </mat-form-field>
+        <dio-input-date titulo="Data de Lançamento" controlName="dtLancamento" [formGroup]="cadastro"></dio-input-date>
         <mat-form-field class="full-width">
-          <input matInput [matDatepicker]="picker" readonly (click)="picker.open()" placeholder="Data de Lançamento" name="dtLancamento" formControlName="dtLancamento">
+          <input matInput [matDatepicker]="picker" readonly (click)="picker.open()" placeholder="Data de Lançamento Antigo" name="dtLancamento" formControlName="dtLancamento">
           <mat-error>CAMPO OBRIGATÓRIO</mat-error>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
