@@ -22,7 +22,7 @@
         <mat-form-field class="full-width">
           <textarea matInput placeholder="Descrição Antigo" name="descricao" formControlName="descricao"></textarea>
         </mat-form-field>
-        <dio-input-text titulo="Nota IMDb" controlName="nota" [formGroup]="cadastro"></dio-input-text> 
+        <dio-input-number titulo="Nota IMDb" controlName="nota" step="0.1" [formGroup]="cadastro"></dio-input-number> 
         <mat-form-field class="full-width">
           <input matInput placeholder="Nota IMDb Antigo" name="nota" formControlName="nota" type="number" min="0" max="10" step="1">
         </mat-form-field>
