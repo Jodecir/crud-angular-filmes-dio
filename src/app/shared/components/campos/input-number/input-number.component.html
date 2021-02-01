@@ -9,7 +9,11 @@
     [max]="maximo" 
     [step]="step">
     <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'required')">CAMPO OBRIGATÓRIO</mat-error>
-    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'minLength')">CARACTERES INSUFICIENTES</mat-error>
-    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'maxLength')">CARACTERES EXCEDIDOS</mat-error>
+    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'min')">
+      DEVE CONTER NO MÍNIMO {{validacao.lengthValidar(formControl, 'min')}}
+      </mat-error>
+    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'max')">
+      DEVE CONTER NO MÁXIMO {{validacao.lengthValidar(formControl, 'max')}}
+    </mat-error>
   </mat-form-field>
 </div>

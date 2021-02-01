@@ -12,6 +12,8 @@ export class InputTextComponent {
   @Input() titulo: string;
   @Input() formGroup: FormGroup;
   @Input() controlName: string;
+  @Input() minimo = 2;
+  @Input() maximo = 200;
 
   constructor(public validacao: ValidarCamposService) { }
 

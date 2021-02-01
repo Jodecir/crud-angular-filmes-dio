@@ -1,8 +1,18 @@
 <div [formGroup]="formGroup">
   <mat-form-field class="full-width">
-    <input matInput [placeholder]="titulo" [name]="controlName" [formControlName]="controlName">
+    <input matInput 
+    [placeholder]="titulo"
+    [name]="controlName" 
+    [formControlName]="controlName"
+    type="text" 
+    [minLength]="minimo" 
+    [maxLength]="maximo" >
     <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'required')">CAMPO OBRIGATÓRIO</mat-error>
-    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'minLength')">CARACTERES INSUFICIENTES</mat-error>
-    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'maxLength')">CARACTERES EXCEDIDOS</mat-error>
+    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'minLength')">
+      DEVE CONTER NO MÍNIMO {{validacao.lengthValidar(formControl, 'minLength')}} CARACTERES
+    </mat-error>
+    <mat-error *ngIf="validacao.hasErrorValidar(formControl, 'maxLength')">
+      DEVE CONTER NO MÁXIMO {{validacao.lengthValidar(formControl, 'maxLength')}} CARACTERES
+    </mat-error>
   </mat-form-field>
 </div>
