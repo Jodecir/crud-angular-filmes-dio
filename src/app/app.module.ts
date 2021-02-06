@@ -12,11 +12,13 @@ import { MaterialModule } from './shared/material/material.module';
 import { TopoComponent } from './shared/components/topo/topo.component';
 
 import { FilmesModule } from './filmes/filmes.module';
+import { AlertaComponent } from './shared/components/alerta/alerta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
+    AlertaComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { FilmesModule } from './filmes/filmes.module';
     AppRoutingModule,
     FilmesModule
   ],
+  entryComponents: [AlertaComponent],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
