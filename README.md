@@ -11,6 +11,7 @@ Repositório da aula de Angular ensinada na plataforma Digital Innovation One, c
 
 ### Requisitos:
 
+[![Angular](https://img.shields.io/badge/-Angular-%23dd1b16?style=flat-square&logo=angular&logoColor=ffffff)](https://angular.io/docs)
 [![HTML Badge](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff&link=https://www.w3schools.com/html/)](https://www.w3schools.com/html/)
 [![CSS Badge](https://img.shields.io/badge/-CSS3-%231572B6?style=flat-square&logo=css3&logoColor=ffffff&link=https://developer.mozilla.org/pt-BR/docs/Web/CSS)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [![JS Badge](https://img.shields.io/badge/-JavaScript-%23F7DF1E?style=flat-square&logo=javascript&logoColor=black&link=https://www.w3schools.com/js/default.asp)](https://www.w3schools.com/js/default.asp)
