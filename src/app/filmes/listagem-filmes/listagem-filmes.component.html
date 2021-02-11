@@ -1,6 +1,6 @@
 <mat-toolbar class="app-title">Filmes Cadastrados</mat-toolbar>
 <div class="home-content">
-  <mat-card class="home-card" *ngFor="let filme of filmes">
+  <mat-card class="home-card" infiniteScroll *ngFor="let filme of filmes" (scrolled)="onScroll()">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{filme.titulo}}</mat-card-title>
@@ -13,7 +13,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button color="accent" (click)="open()" mat-raised-button>ABRIR</button>
+      <button color="accent" mat-raised-button>ABRIR</button>
     </mat-card-actions>
   </mat-card>
 </div>
