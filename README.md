@@ -17,11 +17,12 @@ Repositório da aula de Angular ensinada na plataforma Digital Innovation One, c
 [![JS Badge](https://img.shields.io/badge/-JavaScript-%23F7DF1E?style=flat-square&logo=javascript&logoColor=black&link=https://www.w3schools.com/js/default.asp)](https://www.w3schools.com/js/default.asp)
 [![TS Badge](https://img.shields.io/badge/-TypeScript-%23007acc?style=flat-square&logo=typescript&logoColor=ffffff)](https://www.tutorialspoint.com/typescript/index.htm)
 
-### Bibliotecas:
+### Pacotes:
 
-* [RxJS](https://angular.io/guide/rx-library)
-* [Angular Material](https://material.angular.io/)
+* [RxJS](https://www.npmjs.com/package/rxjs)
+* [Angular Material](https://www.npmjs.com/package/@angular/material)
 * [JSON Server](https://www.npmjs.com/package/json-server)
+* [Angular Infinite Scroll](https://www.npmjs.com/package/ngx-infinite-scroll)
 
 #### Contatos:
 
