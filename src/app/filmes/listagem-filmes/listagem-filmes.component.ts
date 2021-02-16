@@ -1,3 +1,4 @@
+import { ConfigParams } from './../../shared/models/config-params';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,10 +11,12 @@ import { Filme } from 'src/app/shared/models/filme';
   styleUrls: ['./listagem-filmes.component.scss']
 })
 export class ListagemFilmesComponent implements OnInit {
-
-  readonly qtdPagina = 4;
+  readonly semFoto = 'https://www.termoparts.com.br/wp-content/uploads/2017/10/no-image.jpg';
+  config: ConfigParams = {
+    pagina: 0,
+    limite: 4
+  };
   filmes: Filme[] = [];
-  pagina = 1;
   filterList: FormGroup;
   generos: Array<string>;
 
@@ -28,6 +31,16 @@ export class ListagemFilmesComponent implements OnInit {
       genero: ['']
     });
 
+    this.filterList.get('texto').valueChanges.subscribe((val: string) => {
+      this.config.pesquisa = val;
+      this.resetarConsulta();
+    });
+
+    this.filterList.get('genero').valueChanges.subscribe((val: string) => {
+      this.config.campo = {tipo: 'genero', valor: val};
+      this.resetarConsulta();
+    });
+
     this.generos = ['Ação' , 'Aventura' , 'Comédia' , 'Drama' ,'Romance' , 'Ficção Científica' , 'Terror'];
     this.listarFilmes();
   }
@@ -37,9 +50,14 @@ export class ListagemFilmesComponent implements OnInit {
   }
 
   private listarFilmes(): void {
-    this.pagina++;
-    this.FilmesService.listar(this.pagina, this.qtdPagina)
+    this.config.pagina++;
+    this.FilmesService.listar(this.config)
     .subscribe((filmes: Filme[]) => this.filmes.push(...filmes));
-  };
+  }
 
+  private resetarConsulta(): void {
+    this.config.pagina = 0;
+    this.filmes = [];
+    this.listarFilmes;
+  }
 }
