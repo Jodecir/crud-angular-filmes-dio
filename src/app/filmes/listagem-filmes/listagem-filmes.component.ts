@@ -2,8 +2,11 @@ import { ConfigParams } from './../../shared/models/config-params';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
+import { debounceTime } from 'rxjs/operators';
+
 import { FilmesService } from 'src/app/core/filmes.service';
 import { Filme } from 'src/app/shared/models/filme';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'dio-listagem-filmes',
@@ -31,12 +34,15 @@ export class ListagemFilmesComponent implements OnInit {
       genero: ['']
     });
 
-    this.filterList.get('texto').valueChanges.subscribe((val: string) => {
+    this.filterList.get('texto').valueChanges
+    .pipe(debounceTime(400))
+    .subscribe((val: string) => {
       this.config.pesquisa = val;
       this.resetarConsulta();
     });
 
-    this.filterList.get('genero').valueChanges.subscribe((val: string) => {
+    this.filterList.get('genero').valueChanges
+    .subscribe((val: string) => {
       this.config.campo = {tipo: 'genero', valor: val};
       this.resetarConsulta();
     });
