@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ValidarCamposService } from 'src/app/shared/components/campos/validar-campos.service';
 import { Filme } from 'src/app/shared/models/filme';
@@ -16,7 +16,7 @@ import { Alerta } from './../../shared/models/alerta';
   styleUrls: ['./cadastro-filmes.component.scss']
 })
 export class CadastroFilmesComponent implements OnInit {
-
+  id: number;
   cadastro: FormGroup;
   generos: Array<string>
 
@@ -25,19 +25,18 @@ export class CadastroFilmesComponent implements OnInit {
     public dialog: MatDialog,
     private fb: FormBuilder,
     private filmeService: FilmesService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.cadastro = this.fb.group({
-      titulo: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
-      urlFoto: ['', [Validators.minLength(10)]],
-      dtLancamento: ['', [Validators.required]],
-      descricao: [''],
-      nota: [0, [Validators.required, Validators.min(0), Validators.max(10)]],
-      urlIMDb: ['', [Validators.minLength(10)]],
-      genero: ['', [Validators.required]]
-    });
+    this.id = this.activatedRoute.snapshot.params['id'];
+    if (this.id) {
+      this.filmeService.visualizar(this.id)
+        .subscribe((filme: Filme) => this.criarFormulario(filme));
+    } else {
+      this.criarFormulario(this.criarFilmeEmBranco());
+    }
     this.generos = ['Ação' , 'Aventura' , 'Comédia' , 'Drama' ,'Romance' , 'Ficção Científica' , 'Terror'];
   }
 
@@ -46,12 +45,43 @@ export class CadastroFilmesComponent implements OnInit {
     if (this.cadastro.invalid) {
       return;
     }
+
     const filme = this.cadastro.getRawValue() as Filme;
-    this.salvar(filme);
+    if (this.id) {
+      filme.id = this.id;
+      this.editar(filme);
+    } else {
+      this.salvar(filme);
+    }
   }
 
   reset(): void {
     this.cadastro.reset();
+  }
+
+  private criarFormulario(filme: Filme): void {
+    this.cadastro = this.fb.group({
+      titulo: [filme.titulo, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
+      urlFoto: [filme.urlFoto, [Validators.minLength(10)]],
+      dtLancamento: [filme.dtLancamento, [Validators.required]],
+      descricao: [filme.descricao],
+      nota: [filme.nota, [Validators.required, Validators.min(0), Validators.max(10)]],
+      urlIMDb: [filme.urlIMDb, [Validators.minLength(10)]],
+      genero: [filme.genero, [Validators.required]]
+    });
+  }
+
+  private criarFilmeEmBranco(): Filme {
+    return {
+      id: null,
+      titulo: null,
+      dtLancamento: null,
+      urlFoto: null,
+      descricao: null,
+      nota: null,
+      urlImdb: null,
+      genero: null
+    } as Filme;
   }
 
   private salvar(filme: Filme): void {
@@ -80,6 +110,30 @@ export class CadastroFilmesComponent implements OnInit {
           descricao: 'Tente novamente mais tarde',
           btnSucesso: 'Fechar',
           corBtnSucesso: 'warn'
+        } as Alerta
+      };
+      this.dialog.open(AlertaComponent, config);
+    });
+  }
+
+  private editar(filme: Filme): void {
+    this.filmeService.editar(filme).subscribe(() => {
+      const config = {
+        data: {
+          descricao: 'Seu registro foi atualizado com sucesso!',
+          btnSucesso: 'Ir para a listagem',
+        } as Alerta
+      };
+      const dialogRef = this.dialog.open(AlertaComponent, config);
+      dialogRef.afterClosed().subscribe(() => this.router.navigateByUrl('filmes'));
+    },
+    () => {
+      const config = {
+        data: {
+          titulo: 'Erro ao editar o registro!',
+          descricao: 'Não conseguimos editar seu registro, favor tentar novamente mais tarde',
+          corBtnSucesso: 'warn',
+          btnSucesso: 'Fechar'
         } as Alerta
       };
       this.dialog.open(AlertaComponent, config);
