@@ -1,14 +1,14 @@
 <mat-toolbar class="app-title">Filmes Cadastrados</mat-toolbar>
 <mat-card class="float-left margin10 filtro-listagem">
-  <form autocomplete="off" novalidate [formGroup]="filterList">
+  <form autocomplete="off" novalidate [formGroup]="filtersList">
     <div class="float-left width50">
       <div class="padding10">
-        <dio-input-text titulo="Pesquise aqui" controlName="texto" [formGroup]="filterList">Primeiro Input</dio-input-text>
+        <dio-input-text titulo="Pesquise aqui" controlName="texto" [formGroup]="filtersList">Primeiro Input</dio-input-text>
       </div>
     </div>
     <div class="float-left width50">
       <div class="padding10">
-        <dio-input-select titulo="Gênero" controlName="genero" [opcoes]="generos" [formGroup]="filterList">Segundo Input</dio-input-select>
+        <dio-input-select titulo="Gênero" controlName="genero" [opcoes]="generos" [formGroup]="filtersList">Segundo Input</dio-input-select>
       </div>
     </div>
   </form>

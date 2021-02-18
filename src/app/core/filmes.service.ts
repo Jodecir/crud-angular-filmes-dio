@@ -24,8 +24,8 @@ export class FilmesService {
   }
 
   listar(config: ConfigParams): Observable<Filme[]> {
-    const ConfigParams = this.configService.configurarParametros(config);
-    return this.http.get<Filme[]>(url, {params: ConfigParams});
+    const configParams = this.configService.configurarParametros(config);
+    return this.http.get<Filme[]>(url, {params: configParams});
   }
 
   visualizar(id: number): Observable<Filme> {

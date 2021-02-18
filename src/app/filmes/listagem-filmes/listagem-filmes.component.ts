@@ -20,7 +20,7 @@ export class ListagemFilmesComponent implements OnInit {
     limite: 4
   };
   filmes: Filme[] = [];
-  filterList: FormGroup;
+  filtersList: FormGroup;
   generos: Array<string>;
 
   constructor(
@@ -30,19 +30,19 @@ export class ListagemFilmesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.filterList = this.fb.group({
+    this.filtersList = this.fb.group({
       texto: [''],
       genero: ['']
     });
 
-    this.filterList.get('texto').valueChanges
+    this.filtersList.get('texto').valueChanges
     .pipe(debounceTime(400))
     .subscribe((val: string) => {
       this.config.pesquisa = val;
       this.resetarConsulta();
     });
 
-    this.filterList.get('genero').valueChanges
+    this.filtersList.get('genero').valueChanges
     .subscribe((val: string) => {
       this.config.campo = {tipo: 'genero', valor: val};
       this.resetarConsulta();
