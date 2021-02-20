@@ -20,7 +20,7 @@
   display: block;
 }
 
-@media screen and (min-width: 525px) {
+@media screen and (min-width: 360px) {
   .home-content {
     .home-card {
       width: calc(50% - 52px);
@@ -28,7 +28,7 @@
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 720px) {
   .home-content {
     .home-card {
       width: calc(25% - 52px);
@@ -39,7 +39,7 @@
 @media screen and (min-width: 1440px) {
   .home-content {
     .home-card {
-      width: calc(15% - 52px);
+      width: calc(50% - 52px);
     }
   }
 }
