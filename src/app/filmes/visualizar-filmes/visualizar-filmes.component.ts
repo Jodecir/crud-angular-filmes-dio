@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { FilmesService } from 'src/app/core/filmes.service';
 import { Filme } from 'src/app/shared/models/filme';
-import { Alerta } from 'src/app/shared/models/alerta';
 import { AlertaComponent } from 'src/app/shared/components/alerta/alerta.component';
+import { Alerta } from 'src/app/shared/models/alerta';
 
 @Component({
   selector: 'dio-visualizar-filmes',
@@ -37,7 +37,7 @@ export class VisualizarFilmesComponent implements OnInit {
     const config = {
       data: {
         titulo: 'Você tem certeza que deseja excluir?',
-        descricao: 'Caso você tenha certceza que deseja excluir, clique no botão OK',
+        descricao: 'Caso você tenha certeza que deseja excluir, clique no botão OK',
         corBtnCancelar: 'primary',
         corBtnSucesso: 'warn',
         possuirBtnFechar: true

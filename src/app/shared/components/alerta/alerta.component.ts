@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Alerta } from './../../models/alerta';
 @Component({
-  selector: 'alerta',
+  selector: 'dio-alerta',
   templateUrl: './alerta.component.html',
   styleUrls: ['./alerta.component.scss']
 })
@@ -11,7 +11,7 @@ import { Alerta } from './../../models/alerta';
 export class AlertaComponent implements OnInit {
   alerta = {
     titulo: "Sucesso!",
-    descricao: "Cadastro foi bem Sucedido!",
+    descricao: "Cadastro foi bem sucedido!",
     btnSucesso: "OK",
     btnCancelar: "Cancelar",
     corBtnSucesso: "accent",
