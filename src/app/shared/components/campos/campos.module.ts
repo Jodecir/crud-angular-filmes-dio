@@ -6,14 +6,14 @@ import { InputDateComponent } from './input-date/input-date.component';
 import { InputTextareaComponent } from './input-textarea/input-textarea.component';
 import { InputSelectComponent } from './input-select/input-select.component';
 import { MaterialModule } from '../../material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    InputTextComponent, 
-    InputNumberComponent, 
-    InputDateComponent, 
-    InputTextareaComponent, 
+    InputTextComponent,
+    InputNumberComponent,
+    InputDateComponent,
+    InputTextareaComponent,
     InputSelectComponent
   ],
   imports: [
@@ -22,11 +22,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  exports:[
-    InputTextComponent, 
-    InputNumberComponent, 
-    InputDateComponent, 
-    InputTextareaComponent, 
+  exports: [
+    InputTextComponent,
+    InputNumberComponent,
+    InputDateComponent,
+    InputTextareaComponent,
     InputSelectComponent
   ]
 })
