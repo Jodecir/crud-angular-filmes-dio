@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { Alerta } from './../../models/alerta';
+import { Alerta } from '../../models/alerta';
 @Component({
   selector: 'dio-alerta',
   templateUrl: './alerta.component.html',
-  styleUrls: ['./alerta.component.scss']
+  styleUrls: ['./alerta.component.css']
 })
 
 export class AlertaComponent implements OnInit {
@@ -21,7 +21,7 @@ export class AlertaComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AlertaComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: Alerta
   ) {}
 
   ngOnInit() {
