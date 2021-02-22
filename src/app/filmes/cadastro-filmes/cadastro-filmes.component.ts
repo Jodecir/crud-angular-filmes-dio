@@ -4,11 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { ValidarCamposService } from 'src/app/shared/components/campos/validar-campos.service';
-import { Filme } from 'src/app/shared/models/filme';
 import { FilmesService } from 'src/app/core/filmes.service';
+import { Filme } from 'src/app/shared/models/filme';
 import { AlertaComponent } from 'src/app/shared/components/alerta/alerta.component';
-
-import { Alerta } from './../../shared/models/alerta';
+import { Alerta } from 'src/app/shared/models/alerta';
 
 @Component({
   selector: 'dio-cadastro-filmes',
@@ -29,7 +28,11 @@ export class CadastroFilmesComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  get f() {
+    return this.cadastro.controls;
+  }
+
+  ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
       this.filmeService.visualizar(this.id)
