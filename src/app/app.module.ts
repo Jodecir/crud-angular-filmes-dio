@@ -13,20 +13,22 @@ import { TopoComponent } from './shared/components/topo/topo.component';
 
 import { FilmesModule } from './filmes/filmes.module';
 import { AlertaComponent } from './shared/components/alerta/alerta.component';
+import { RodapeComponent } from './shared/components/rodape/rodape.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
     AlertaComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
-    MaterialModule,
     AppRoutingModule,
+    MaterialModule,
     FilmesModule
   ],
   entryComponents: [AlertaComponent],
