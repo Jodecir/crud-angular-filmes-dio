@@ -1,0 +1,28 @@
+footer {
+  font-size: 16pt;
+  margin-top: 5%;
+  background: black;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+footer i {
+  padding: 15px;
+}
+
+footer i:hover {
+  transform: scale(1.15);
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.primary {
+  color: white;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
