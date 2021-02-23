@@ -1,3 +1,8 @@
+* {
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+
 footer i {
   padding: 15px;
 }
