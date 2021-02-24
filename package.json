@@ -1,7 +1,7 @@
 {
-  "name": "filmes",
-  "version": "0.0.0",
-  "description": "Curso avançado angular",
+  "name": "crud-filmes",
+  "version": "1.0.0",
+  "description": "CRUD utilizando Json-Server",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
