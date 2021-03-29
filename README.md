@@ -1,6 +1,6 @@
 # Descrição do Exercício
 
-Repositório da aula de Angular ensinada na plataforma Digital Innovation One, cujo foi ensinado a criar um Crud usando Json-Server.
+Repositório da aula de Angular ensinada na plataforma Digital Innovation One, cujo foi ensinado a criar um CRUD, foi usado nele Json-Server para emular uma API REST.
 
 ### Ferramentas Utilizadas:
 
